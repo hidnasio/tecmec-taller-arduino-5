@@ -2,15 +2,12 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClientSecureBearSSL.h>
-
 #define PIR D3
 #define LED BUILTIN_LED
 
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
-// slack incoming webhook here!
-const String url = "https://www.example.com";
-
+const String url = "https://www.example.com";              // slack incoming webhook here!
 volatile byte state = LOW;
 
 ICACHE_RAM_ATTR void interrupt_routine() {
@@ -42,8 +39,7 @@ void postData(String data) {
   HTTPClient https;
 
   if (https.begin(*client, url)) {
-    // slack payload here
-    String postData =
+    String postData =                                          // slack payload here
       "payload={"
         "\"channel\": \"#iot-examples\","
         "\"username\": \"webhookbot\", "

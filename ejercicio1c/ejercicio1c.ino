@@ -5,8 +5,7 @@
 
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
-// slack incoming webhook here!
-const String url = "https://example.com";
+const String url = "https://example.com";          // slack incoming webhook here!
 
 void setup() {
   Serial.begin(115200);
@@ -30,8 +29,7 @@ void postData(String data) {
   HTTPClient https;
 
   if (https.begin(*client, url)) {
-    // slack payload here
-    String postData =
+    String postData =                              // slack payload here
       "payload={"
         "\"channel\": \"#iot-examples\","
         "\"username\": \"webhookbot\", "
